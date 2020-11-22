@@ -84,6 +84,7 @@ class Api extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'role' => 'user',
         ])));
 
         return response()->json('User registered');
