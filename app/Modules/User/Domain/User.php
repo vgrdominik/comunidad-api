@@ -77,6 +77,17 @@ class User extends Authenticatable implements BaseDomainInterface, DescriptiveIn
 
     // OTHERS
 
+    public function hasRole($role)
+    {
+        $roles = explode(',', $this->role);
+
+        if (in_array($role, $roles)) {
+            return true;
+        }
+
+        return false;
+    }
+
     /**
      * Send the password reset notification.
      *

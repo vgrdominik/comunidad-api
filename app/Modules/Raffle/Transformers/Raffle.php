@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Modules\Payment\Transformers;
+namespace App\Modules\Raffle\Transformers;
 
 use App\Modules\Base\Transformers\BaseTransformer;
-use App\Modules\Payment\Domain\Payment as PaymentModel;
+use App\Modules\Raffle\Domain\Raffle as RaffleModel;
 
-class Payment extends BaseTransformer
+class Raffle extends BaseTransformer
 {
 
     /**
      * The resource instance.
      *
-     * @var mixed|PaymentModel
+     * @var mixed|RaffleModel
      */
     public $resource;
 
@@ -25,7 +25,8 @@ class Payment extends BaseTransformer
     {
         return [
             $this->merge(parent::toArray($request)),
-            'status' => $this->status,
+            'status'  => $this->status,
+            'photo'   => $this->photo,
             'creator' => new BaseTransformer($this->creator),
         ];
     }
